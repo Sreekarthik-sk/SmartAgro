@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Upload Leaf Image</h1>
+<form method="POST" enctype="multipart/form-data">
+    <label class="upload-box">
+        <input type="file" name="leaf_image" accept="image/*" required onchange="showFileName(this); previewImage(event)">
+        <span id="upload-label">📷 Click to upload leaf image</span>
+    </label>
+    <!-- ✅ Image preview -->
+    <img id="preview" style="display:none; max-width:100%; margin-top:15px; border-radius:10px;">
+    <button type="submit">Predict Disease</button>
+</form>
+
+{% if prediction %}
+<div class="result-card">
+    <img src="{{ image_url }}" alt="Uploaded Leaf">
+    <span class="badge {{ prediction|lower }}">{{ prediction }}</span>
+    <p class="confidence-text">Confidence: {{ confidence }}%</p>
+
+    <div class="progress-bar">
+        <div class="progress" style="width: {{ confidence }}%"></div>
+    </div>
+
+    <div class="info-box">
+        <h3>Disease Information</h3>
+        <p>
+            {% if prediction == 'Yellow' %}
+                Yellow Leaf Disease causes yellowing along the leaf midrib and reduces sugar content.
+            {% elif prediction == 'RedRot' %}
+                Red Rot is a severe fungal disease causing internal reddening and drying of canes.
+            {% elif prediction == 'Rust' %}
+                Rust disease appears as brown pustules and affects photosynthesis.
+            {% elif prediction == 'Mosaic' %}
+                Mosaic disease causes mottled leaf patterns and stunted growth.
+            {% else %}
+                Healthy leaf with no visible disease symptoms.
+            {% endif %}
+        </p>
+        <a href="{{ url_for('info', disease=prediction) }}" class="btn">Learn More</a>
+    </div>
+
+    <a href="{{ url_for('diagnose') }}" class="reset-btn">🔄 Analyze Another Image</a>
+</div>
+{% endif %}
+
+<!-- ✅ Add JavaScript here -->
+<script>
+function showFileName(input) {
+    const label = document.getElementById("upload-label");
+    if (input.files && input.files[0]) {
+        label.textContent = "✅ " + input.files[0].name + " selected";
+    }
+}
+
+function previewImage(event) {
+    const preview = document.getElementById("preview");
+    preview.src = URL.createObjectURL(event.target.files[0]);
+    preview.style.display = "block";
+}
+</script>
+{% endblock %}

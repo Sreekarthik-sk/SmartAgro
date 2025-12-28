@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Welcome to SmartAgro 🌱</h1>
+<p class="subtitle">AI-powered leaf disease detection for sugarcane farmers</p>
+
+<a href="{{ url_for('diagnose') }}" class="btn">🌿 Diagnose Leaf Disease</a>
+
+{% if session.get('user') %}
+<p style="margin-top:20px;">Logged in as <strong>{{ session['user'] }}</strong> | 
+<a href="{{ url_for('logout') }}" class="reset-btn">Logout</a></p>
+{% endif %}
+{% endblock %}

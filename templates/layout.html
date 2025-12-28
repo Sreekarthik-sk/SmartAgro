@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ✅ Mobile responsiveness -->
+    <title>SmartAgro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- ✅ Navbar with hamburger toggle -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">🌱 SmartAgro</div>
+            <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('diagnose') }}">Diagnose</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('history') }}">History</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        Powered by CNN & Transfer Learning | SmartAgro
+        <button id="dark-toggle">🌙 Dark Mode</button>
+    </footer>
+
+    <!-- ✅ Scripts -->
+    <script>
+    function toggleMenu() {
+        const nav = document.getElementById("nav-links");
+        nav.classList.toggle("active");
+    }
+
+    document.getElementById("dark-toggle").addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode");
+    });
+    </script>
+</body>
+</html>

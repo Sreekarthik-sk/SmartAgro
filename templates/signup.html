@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Sign Up</h1>
+<form method="POST">
+    <input type="text" name="username" placeholder="Choose a username" required><br><br>
+    <input type="password" name="password" placeholder="Choose a password" required><br><br>
+    <button type="submit">Sign Up</button>
+</form>
+{% if error %}
+<p style="color:red;">{{ error }}</p>
+{% endif %}
+<p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+{% endblock %}

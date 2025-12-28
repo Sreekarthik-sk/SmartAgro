@@ -1,0 +1,14 @@
+# Ignore virtual environment
+tf_env/
+
+# Ignore datasets and large files
+*.zip
+*.h5
+*.keras
+
+# Ignore local database
+users.db
+
+# Ignore Python cache
+__pycache__/
+*.pyc

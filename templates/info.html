@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Disease Information</h1>
+{% if disease == "Yellow" %}
+    <p><strong>Yellow Leaf Disease:</strong> Causes yellowing along the leaf midrib and reduces sugar content.</p>
+{% elif disease == "RedRot" %}
+    <p><strong>Red Rot:</strong> Severe fungal disease causing internal reddening and drying of canes.</p>
+{% elif disease == "Rust" %}
+    <p><strong>Rust:</strong> Appears as brown pustules and affects photosynthesis.</p>
+{% elif disease == "Mosaic" %}
+    <p><strong>Mosaic:</strong> Causes mottled leaf patterns and stunted growth.</p>
+{% else %}
+    <p><strong>Healthy Leaf:</strong> No visible disease symptoms.</p>
+{% endif %}
+<a href="{{ url_for('diagnose') }}" class="btn">🔙 Back to Diagnosis</a>
+{% endblock %}

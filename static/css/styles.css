@@ -1,0 +1,255 @@
+/* ===== Global Styles ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #eef7ec;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 60px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    background: #2e7d32;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fbc02d;
+}
+
+/* ===== Hamburger Toggle ===== */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+}
+
+/* ===== Mobile Responsive Navbar ===== */
+@media (max-width: 600px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #2e7d32;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links a {
+        padding: 10px;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+}
+
+/* ===== Headings ===== */
+h1 {
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* ===== Upload Box ===== */
+.upload-box {
+    display: block;
+    border: 2px dashed #81c784;
+    padding: 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #2e7d32;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.upload-box input {
+    display: none;
+}
+
+/* ===== Buttons ===== */
+button, .btn {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+button:hover, .btn:hover {
+    background: #1b5e20;
+}
+
+/* ===== Result Card ===== */
+.result-card {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.result-card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+/* ===== Badge Styles ===== */
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+}
+
+.badge.yellow { background: #fbc02d; color: #333; }
+.badge.redrot { background: #c62828; }
+.badge.rust { background: #8d6e63; }
+.badge.mosaic { background: #6a1b9a; }
+.badge.healthy { background: #2e7d32; }
+
+/* ===== Confidence Bar ===== */
+.confidence-text {
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.progress-bar {
+    width: 100%;
+    background: #e0e0e0;
+    border-radius: 10px;
+    margin: 10px 0 20px;
+    height: 10px;
+}
+
+.progress {
+    height: 10px;
+    background: #2e7d32;
+    border-radius: 10px;
+}
+
+/* ===== Info Box ===== */
+.info-box {
+    background: #f1f8e9;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+/* ===== Reset Button ===== */
+.reset-btn {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #2e7d32;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.reset-btn:hover {
+    color: #1b5e20;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #666;
+    font-size: 14px;
+    position: relative;
+}
+
+#dark-toggle {
+    margin-left: 10px;
+    padding: 6px 12px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#dark-toggle:hover {
+    background: #1b5e20;
+}
+
+/* ===== Dark Mode ===== */
+.dark-mode {
+    background: #121212;
+    color: #eee;
+}
+
+.dark-mode .container {
+    background: #1e1e1e;
+    color: #eee;
+}
+
+.dark-mode .navbar {
+    background: #333;
+}
+
+.dark-mode .nav-links a {
+    color: #eee;
+}
+
+.dark-mode footer {
+    color: #aaa;
+}

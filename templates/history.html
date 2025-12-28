@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Prediction History</h1>
+
+{% if history %}
+    <ul style="list-style:none; padding:0;">
+    {% for item in history %}
+        <li style="margin-bottom:20px;">
+            <img src="{{ item.image_url }}" alt="Leaf Image" style="width:120px; border-radius:8px; margin-right:10px;">
+            <strong>{{ item.prediction }}</strong> ({{ item.confidence }}%)
+        </li>
+    {% endfor %}
+    </ul>
+    <a href="{{ url_for('clear_history') }}" class="btn">🗑️ Clear History</a>
+{% else %}
+    <p>No predictions yet. Upload a leaf image to start!</p>
+{% endif %}
+{% endblock %}

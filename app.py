@@ -15,7 +15,7 @@ MODEL_PATH = "sugarcane_model_improved.keras"
 UPLOAD_FOLDER = os.path.join("static", "uploads")
 IMAGE_SIZE = (224, 224)
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
-DB_PATH = "users.db"
+DB_PATH = os.path.join(os.getcwd(), "users.db")
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 

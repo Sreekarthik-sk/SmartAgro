@@ -19,9 +19,15 @@ DB_PATH = os.path.join(os.getcwd(), "users.db")
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# ===== LOAD MODEL =====
-model = load_model(MODEL_PATH)
+# ===== LAZY MODEL LOADING =====
+model = None
 class_names = ['Healthy', 'Mosaic', 'RedRot', 'Rust', 'Yellow']
+
+def get_model():
+    global model
+    if model is None:
+        model = load_model(MODEL_PATH)
+    return model
 
 # ===== DATABASE =====
 def init_db():
@@ -136,7 +142,7 @@ def diagnose():
 
             img = prepare_image(file_path)
             try:
-                preds = model.predict(img)
+                preds = get_model().predict(img)
                 prediction = class_names[np.argmax(preds)]
                 confidence = round(float(np.max(preds)) * 100, 2)
                 image_url = url_for('static', filename=f'uploads/{filename}')
